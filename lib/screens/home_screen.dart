@@ -109,16 +109,23 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('My Recipes'),
         actions: [
-          TextButton.icon(
-            onPressed: _viewFavorites,
-            icon: const Icon(Icons.favorite, color: Colors.white),
-            label: const Text(
-              'View Favorites',
-              style: TextStyle(color: Colors.white),
+            Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,      // bright background
+                foregroundColor: Colors.deepOrange, // text/icon color
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                ),
+                ),
+                onPressed: _viewFavorites,
+                icon: const Icon(Icons.favorite),
+                label: const Text('View Favorites'),
             ),
-          ),
+            ),
         ],
-      ),
+        ),
       body: ListView.separated(
         itemCount: recipes.length,
         separatorBuilder: (_, __) => const Divider(height: 1),
